@@ -1,8 +1,6 @@
 package com.example.coivd_19mvvm.apiservices.apiglobal
 
-import com.example.coivd_19mvvm.apiservices.apiglobal.ApiServiceGlobal
-import com.example.coivd_19mvvm.apiservices.apiglobal.ApiServiceGlobalHelper
-import com.example.coivd_19mvvm.data.WorldWideCases
+import com.example.coivd_19mvvm.data.global.WorldWideCases
 import retrofit2.Response
 import javax.inject.Inject
 

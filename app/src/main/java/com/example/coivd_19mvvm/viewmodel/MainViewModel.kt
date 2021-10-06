@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.coivd_19mvvm.data.Countries
-import com.example.coivd_19mvvm.data.WorldWideCases
+import com.example.coivd_19mvvm.data.local.Countries
+import com.example.coivd_19mvvm.data.global.WorldWideCases
 import com.example.coivd_19mvvm.repository.MainRepository
 import com.example.coivd_19mvvm.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel

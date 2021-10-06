@@ -1,6 +1,6 @@
 package com.example.coivd_19mvvm.apiservices.apicountries
 
-import com.example.coivd_19mvvm.data.Countries
+import com.example.coivd_19mvvm.data.local.Countries
 import retrofit2.Response
 import javax.inject.Inject
 

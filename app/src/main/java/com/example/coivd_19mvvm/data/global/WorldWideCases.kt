@@ -1,4 +1,4 @@
-package com.example.coivd_19mvvm.data
+package com.example.coivd_19mvvm.data.global
 
 data class WorldWideCases(
     val active: Int,

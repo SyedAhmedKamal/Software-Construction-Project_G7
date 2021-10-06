@@ -36,13 +36,11 @@ class MainActivity : AppCompatActivity() {
                 when (isAvailable) {
 
                     true -> {
-                        tv.text = "Connected"
                         fetchData()
                         fetchCountries()
                         Log.d(TAG, "checkConnection: Connected")
                     }
                     false -> {
-                        tv.text = "NotConnected"
                         Log.d(TAG, "checkConnection: NotConnected")
                     }
 

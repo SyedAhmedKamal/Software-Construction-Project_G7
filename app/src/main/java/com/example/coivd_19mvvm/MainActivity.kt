@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                     true -> {
                         tv.text = "Connected"
                         fetchData()
+                        fetchCountries()
                         Log.d(TAG, "checkConnection: Connected")
                     }
                     false -> {
@@ -53,24 +54,57 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun fetchCountries() {
+
+        mainViewModel.countRes.observe(this) {
+
+            when (it.status) {
+
+                Status.SUCCESS -> {
+                    it.data?.let { list ->
+
+                        val iterator = list.iterator()
+                        Log.i(TAG, "fetchCountries: size ${list.size}")
+
+                        if (iterator.hasNext()) {
+                            iterator.forEach { countriesItem ->
+                                Log.i(
+                                    TAG,
+                                    "fetchCountries: Countries names: ${countriesItem.country}, " +
+                                            "Info ${countriesItem.countryInfo.iso2}"
+                                )
+                            }
+                        }
+                    }
+                }
+                Status.LOADING -> {
+                }
+                Status.ERROR -> {
+                }
+            }
+
+        }
+
+    }
+
     private fun fetchData() {
 
-        mainViewModel.globalRes.observe(this){
-            when(it.status){
+        mainViewModel.globalRes.observe(this) {
+            when (it.status) {
 
-                Status.SUCCESS ->{
+                Status.SUCCESS -> {
                     Log.i(TAG, "fetchData: ProgressBar gone")
-                    it.data?.let {it1 ->
+                    it.data?.let { it1 ->
                         it1.apply {
                             Log.i(TAG, "fetchData: ${it1.cases} \t ${it1.population}")
                         }
                     }
                 }
-                Status.LOADING ->{
+                Status.LOADING -> {
                     Log.i(TAG, "fetchData: ProgressBar visible")
                     Log.i(TAG, "fetchData: data gone")
                 }
-                Status.ERROR ->{
+                Status.ERROR -> {
                     Log.i(TAG, "fetchData: ProgressBar gone")
                     Log.i(TAG, "fetchData: Error occur")
                 }

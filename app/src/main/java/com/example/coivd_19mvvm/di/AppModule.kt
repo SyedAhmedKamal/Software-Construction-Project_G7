@@ -1,8 +1,11 @@
 package com.example.coivd_19mvvm.di
 
-import com.example.coivd_19mvvm.apiservices.ApiServiceGlobal
-import com.example.coivd_19mvvm.apiservices.ApiServiceGlobalHelper
-import com.example.coivd_19mvvm.apiservices.GlobalImple
+import com.example.coivd_19mvvm.apiservices.apicountries.ApiCountries
+import com.example.coivd_19mvvm.apiservices.apicountries.ApiCountriesHelper
+import com.example.coivd_19mvvm.apiservices.apicountries.CountriesImple
+import com.example.coivd_19mvvm.apiservices.apiglobal.ApiServiceGlobal
+import com.example.coivd_19mvvm.apiservices.apiglobal.ApiServiceGlobalHelper
+import com.example.coivd_19mvvm.apiservices.apiglobal.GlobalImple
 import com.example.coivd_19mvvm.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -38,4 +41,12 @@ object AppModule {
     @Provides
     @Singleton
     fun providesGlobalHelper(globalImple: GlobalImple): ApiServiceGlobalHelper = globalImple
+
+    @Provides
+    @Singleton
+    fun providesCountriesApiServices(retrofit: Retrofit) = retrofit.create(ApiCountries::class.java)
+
+    @Provides
+    @Singleton
+    fun providesCountriesHelper(countriesImple: CountriesImple): ApiCountriesHelper = countriesImple
 }

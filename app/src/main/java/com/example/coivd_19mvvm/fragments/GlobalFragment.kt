@@ -46,13 +46,6 @@ class GlobalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.gtoToCList.setOnClickListener {
-
-            val directions = GlobalFragmentDirections.actionGlobalFragmentToCountriesListFragment()
-            findNavController().navigate(directions)
-
-        }
-
         // Internet and network checking
         val networkStatus = NetworkStatus(requireContext())
 

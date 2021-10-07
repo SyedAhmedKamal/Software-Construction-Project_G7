@@ -15,6 +15,7 @@ import com.example.coivd_19mvvm.data.local.CountriesItem
 import com.example.coivd_19mvvm.databinding.ActivityMainBinding
 import com.example.coivd_19mvvm.databinding.FragmentCountrySpecificBinding
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 class CountrySpecificFragment : Fragment() {
@@ -56,6 +57,10 @@ class CountrySpecificFragment : Fragment() {
                     spTodayRecovered.text = format(recovered).toString()
 
                 }
+
+
+                val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm")
+                spDate.text = sdf.format(Date()).toString()
 
                 spCtName.text = country
                 spFlag.load(countryInfo.flag){

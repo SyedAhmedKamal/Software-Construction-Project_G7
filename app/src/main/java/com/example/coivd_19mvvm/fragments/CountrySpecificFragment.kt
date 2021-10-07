@@ -51,9 +51,9 @@ class CountrySpecificFragment : Fragment() {
             args.countryArgs.apply {
                 NumberFormat.getInstance(Locale.US).apply {
 
-                    spTodayCases.text = format(todayCases).toString()
-                    spTodayDeaths.text = format(todayDeaths).toString()
-                    spTodayRecovered.text = format(todayRecovered).toString()
+                    spTodayCases.text = format(cases).toString()
+                    spTodayDeaths.text = format(deaths).toString()
+                    spTodayRecovered.text = format(recovered).toString()
 
                 }
 

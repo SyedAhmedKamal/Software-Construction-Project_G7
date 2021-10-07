@@ -8,10 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.navArgs
+import coil.load
+import coil.transform.RoundedCornersTransformation
 import com.example.coivd_19mvvm.R
 import com.example.coivd_19mvvm.data.local.CountriesItem
 import com.example.coivd_19mvvm.databinding.ActivityMainBinding
 import com.example.coivd_19mvvm.databinding.FragmentCountrySpecificBinding
+import java.text.NumberFormat
+import java.util.*
 
 class CountrySpecificFragment : Fragment() {
 
@@ -43,8 +47,23 @@ class CountrySpecificFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.apply {
+            args.countryArgs.apply {
+                NumberFormat.getInstance(Locale.US).apply {
 
-       // binding.tvMock.text = args.countryArgs.country
+                    spTodayCases.text = format(todayCases).toString()
+                    spTodayDeaths.text = format(todayDeaths).toString()
+                    spTodayRecovered.text = format(todayRecovered).toString()
+
+                }
+
+                spCtName.text = country
+                spFlag.load(countryInfo.flag){
+                    crossfade(true)
+                    transformations(RoundedCornersTransformation(12f))
+                }
+            }
+        }
     }
 
     override fun onDestroy() {

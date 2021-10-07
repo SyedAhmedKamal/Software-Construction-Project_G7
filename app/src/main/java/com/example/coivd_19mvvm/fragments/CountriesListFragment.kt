@@ -7,18 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coivd_19mvvm.R
 import com.example.coivd_19mvvm.custom_adapter.LocalAdapter
+import com.example.coivd_19mvvm.data.local.CountriesItem
 import com.example.coivd_19mvvm.databinding.FragmentCountriesListBinding
+import com.example.coivd_19mvvm.util.ItemClickListener
 import com.example.coivd_19mvvm.util.Status
 import com.example.coivd_19mvvm.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CountriesListFragment : Fragment() {
+class CountriesListFragment : Fragment(), ItemClickListener {
 
     private var _binding: FragmentCountriesListBinding? = null
     private val binding get() = _binding!!
@@ -50,7 +54,7 @@ class CountriesListFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        myAdapter = LocalAdapter(requireContext())
+        myAdapter = LocalAdapter(requireContext(), this)
 
         binding.recyclerView.apply {
             adapter = myAdapter
@@ -63,18 +67,23 @@ class CountriesListFragment : Fragment() {
             )
         }
 
-
-
         mainViewModel.countRes.observe(this) {
-
             when (it.status) {
 
                 Status.SUCCESS -> {
                     it.data?.let { list ->
+                        binding.apply {
+                            shimmerLayoutList.visibility = View.GONE
+                            listMainView.visibility = View.VISIBLE
+                        }
                         myAdapter.countriesList = list
                     }
                 }
                 Status.LOADING -> {
+                    binding.apply {
+                        shimmerLayoutList.visibility = View.VISIBLE
+                        listMainView.visibility = View.GONE
+                    }
                 }
                 Status.ERROR -> {
                     Log.d(TAG, "initRecyclerView: error message ${it.message}")
@@ -88,5 +97,11 @@ class CountriesListFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onClick(currentItem: CountriesItem) {
+        val directions = CountriesListFragmentDirections
+            .actionCountriesListFragmentToCountrySpecificFragment(currentItem)
+        findNavController().navigate(directions)
     }
 }

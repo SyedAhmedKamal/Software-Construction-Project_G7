@@ -7,6 +7,7 @@ import com.example.coivd_19mvvm.apiservices.apiglobal.ApiServiceGlobal
 import com.example.coivd_19mvvm.apiservices.apiglobal.ApiServiceGlobalHelper
 import com.example.coivd_19mvvm.apiservices.apiglobal.GlobalImple
 import com.example.coivd_19mvvm.util.Constants.BASE_URL
+import com.example.coivd_19mvvm.util.ItemClickListener
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -49,4 +50,5 @@ object AppModule {
     @Provides
     @Singleton
     fun providesCountriesHelper(countriesImple: CountriesImple): ApiCountriesHelper = countriesImple
+
 }

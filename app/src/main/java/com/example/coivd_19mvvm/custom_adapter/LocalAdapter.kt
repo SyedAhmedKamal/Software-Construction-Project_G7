@@ -15,10 +15,13 @@ import com.example.coivd_19mvvm.R
 import com.example.coivd_19mvvm.data.local.CountriesItem
 import com.example.coivd_19mvvm.databinding.LocalDataDisplayBinding
 import com.example.coivd_19mvvm.fragments.CountriesListFragmentDirections
+import com.example.coivd_19mvvm.util.ItemClickListener
 import javax.inject.Inject
 
-class LocalAdapter @Inject constructor(val context: Context) :
-    RecyclerView.Adapter<LocalAdapter.LocalViewHolder>() {
+class LocalAdapter(
+    val context: Context,
+    private val itemClickListener: ItemClickListener
+) : RecyclerView.Adapter<LocalAdapter.LocalViewHolder>() {
 
     class LocalViewHolder(val itemBinding: LocalDataDisplayBinding) :
         RecyclerView.ViewHolder(itemBinding.root)
@@ -62,7 +65,6 @@ class LocalAdapter @Inject constructor(val context: Context) :
                 crossfade(true)
                 crossfade(500)
                 transformations(BlurTransformation(context))
-                transformations(GrayscaleTransformation())
                 transformations(RoundedCornersTransformation(15f))
                 placeholder(R.drawable.ic_baseline_image_24)
             }
@@ -71,10 +73,7 @@ class LocalAdapter @Inject constructor(val context: Context) :
 
         holder.itemView.setOnClickListener {
 
-            val directions = CountriesListFragmentDirections
-                .actionCountriesListFragmentToCountrySpecificFragment(currentCountry)
-            it.findNavController().navigate(directions)
-
+            itemClickListener.onClick(currentCountry)
         }
     }
 

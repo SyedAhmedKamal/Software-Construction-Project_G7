@@ -3,6 +3,7 @@ package com.example.coivd_19mvvm.custom_adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -13,9 +14,10 @@ import coil.transform.RoundedCornersTransformation
 import com.example.coivd_19mvvm.R
 import com.example.coivd_19mvvm.data.local.CountriesItem
 import com.example.coivd_19mvvm.databinding.LocalDataDisplayBinding
+import com.example.coivd_19mvvm.fragments.CountriesListFragmentDirections
 import javax.inject.Inject
 
-class LocalAdapter @Inject constructor(val context: Context):
+class LocalAdapter @Inject constructor(val context: Context) :
     RecyclerView.Adapter<LocalAdapter.LocalViewHolder>() {
 
     class LocalViewHolder(val itemBinding: LocalDataDisplayBinding) :
@@ -56,7 +58,7 @@ class LocalAdapter @Inject constructor(val context: Context):
         holder.itemBinding.apply {
 
             tvCountriesName.text = currentCountry.country
-            flagImageView.load(currentCountry.countryInfo.flag){
+            flagImageView.load(currentCountry.countryInfo.flag) {
                 crossfade(true)
                 crossfade(500)
                 transformations(BlurTransformation(context))
@@ -64,6 +66,14 @@ class LocalAdapter @Inject constructor(val context: Context):
                 transformations(RoundedCornersTransformation(15f))
                 placeholder(R.drawable.ic_baseline_image_24)
             }
+
+        }
+
+        holder.itemView.setOnClickListener {
+
+            val directions = CountriesListFragmentDirections
+                .actionCountriesListFragmentToCountrySpecificFragment(currentCountry)
+            it.findNavController().navigate(directions)
 
         }
     }

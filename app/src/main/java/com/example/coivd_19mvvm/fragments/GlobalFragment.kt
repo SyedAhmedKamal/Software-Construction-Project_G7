@@ -46,6 +46,12 @@ class GlobalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.gtoToCList.setOnClickListener {
+
+            val directions = GlobalFragmentDirections.actionGlobalFragmentToCountriesListFragment()
+            findNavController().navigate(directions)
+
+        }
 
         // Internet and network checking
         val networkStatus = NetworkStatus(requireContext())
@@ -81,7 +87,7 @@ class GlobalFragment : Fragment() {
                             val nf = NumberFormat.getInstance(Locale.US)
                             nf.apply {
 
-                                todayCases.text = format (it1.todayCases).toString()
+                                todayCases.text = format(it1.todayCases).toString()
                                 todayDeaths.text = format(it1.todayDeaths).toString()
                                 todayRecovered.text = format(it1.todayRecovered).toString()
                                 active.text = format(it1.active).toString()

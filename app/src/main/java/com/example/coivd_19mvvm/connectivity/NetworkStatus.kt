@@ -31,6 +31,10 @@ class NetworkStatus(
                     postValue(true)
                     Log.i(TAG, "onAvailable: Internet access is available")
                 }
+                else{
+                    postValue(false)
+                    Log.i(TAG, "onAvailable: internet in unavailable")
+                }
             }
         }
 

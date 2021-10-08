@@ -32,13 +32,15 @@
         app:navGraph="@navigation/nav_graph" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:background="@drawable/bottom_nav_bg"
         android:id="@+id/bottom_nav"
+        app:itemIconTint="?attr/colorOnSecondary"
+        app:itemTextColor="?attr/colorOnSecondary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/bottom_nav_bg"
         android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -12,7 +12,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.coivd_19mvvm.NavGraphDirections
 import com.example.coivd_19mvvm.R
+import com.example.coivd_19mvvm.connectivity.NetworkStatus
 import com.example.coivd_19mvvm.custom_adapter.LocalAdapter
 import com.example.coivd_19mvvm.data.local.CountriesItem
 import com.example.coivd_19mvvm.databinding.FragmentCountriesListBinding
@@ -67,6 +69,26 @@ class CountriesListFragment : Fragment(), ItemClickListener {
             )
         }
 
+        NetworkStatus(requireContext()).observe(this) {
+
+            when (it) {
+                true -> {
+                    fetchList()
+                }
+                false -> {
+                    binding.apply {
+                        listNoInternet.visibility = View.VISIBLE
+                        listMainView.visibility = View.GONE
+                        shimmerLayoutList.visibility = View.GONE
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    private fun fetchList() {
         mainViewModel.countRes.observe(this) {
             when (it.status) {
 
@@ -75,6 +97,7 @@ class CountriesListFragment : Fragment(), ItemClickListener {
                         binding.apply {
                             shimmerLayoutList.visibility = View.GONE
                             listMainView.visibility = View.VISIBLE
+                            listNoInternet.visibility = View.GONE
                         }
                         myAdapter.countriesList = list
                     }
@@ -83,15 +106,16 @@ class CountriesListFragment : Fragment(), ItemClickListener {
                     binding.apply {
                         shimmerLayoutList.visibility = View.VISIBLE
                         listMainView.visibility = View.GONE
+                        listNoInternet.visibility = View.GONE
                     }
                 }
                 Status.ERROR -> {
+                    binding.listNoInternet.visibility = View.VISIBLE
                     Log.d(TAG, "initRecyclerView: error message ${it.message}")
                 }
             }
 
         }
-
     }
 
     override fun onDestroy() {

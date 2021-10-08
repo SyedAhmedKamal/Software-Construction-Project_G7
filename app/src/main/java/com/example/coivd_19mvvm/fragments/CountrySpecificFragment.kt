@@ -7,10 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import coil.transform.RoundedCornersTransformation
+import com.example.coivd_19mvvm.NavGraphDirections
 import com.example.coivd_19mvvm.R
+import com.example.coivd_19mvvm.connectivity.NetworkStatus
 import com.example.coivd_19mvvm.data.local.CountriesItem
 import com.example.coivd_19mvvm.databinding.ActivityMainBinding
 import com.example.coivd_19mvvm.databinding.FragmentCountrySpecificBinding
@@ -23,7 +26,6 @@ class CountrySpecificFragment : Fragment() {
     private var _binding: FragmentCountrySpecificBinding? = null
     private lateinit var mainBinding: ActivityMainBinding
     private val binding get() = _binding!!
-    private lateinit var countriesItem: CountriesItem
 
     private val args: CountrySpecificFragmentArgs by navArgs()
 
@@ -48,22 +50,22 @@ class CountrySpecificFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        displayData()
+
+    }
+
+    private fun displayData() {
         binding.apply {
             args.countryArgs.apply {
                 NumberFormat.getInstance(Locale.US).apply {
-
                     spTodayCases.text = format(cases).toString()
                     spTodayDeaths.text = format(deaths).toString()
                     spTodayRecovered.text = format(recovered).toString()
-
                 }
-
-
                 val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm")
                 spDate.text = sdf.format(Date()).toString()
-
                 spCtName.text = country
-                spFlag.load(countryInfo.flag){
+                spFlag.load(countryInfo.flag) {
                     crossfade(true)
                     transformations(RoundedCornersTransformation(12f))
                 }

@@ -3,14 +3,14 @@
 
     <item
         android:title="Global"
-        android:icon="@drawable/globe"
+        android:icon="@drawable/outline_public_24"
         android:id="@+id/globalFragment"
         />
 
     <item
         android:title="Local"
         android:id="@+id/countriesListFragment"
-        android:icon="@drawable/locals"
+        android:icon="@drawable/outline_location_on_24"
         />
 
 </menu>

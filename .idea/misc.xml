@@ -5,7 +5,11 @@
       <map>
         <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19MVVM/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2890625" />
         <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19MVVM/app/src/main/res/drawable/bottom_nav_bg.xml" value="0.2890625" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19MVVM/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.2890625" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19MVVM/app/src/main/res/drawable/ic_baseline_signal_wifi_off_24.xml" value="0.2890625" />
         <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19MVVM/app/src/main/res/drawable/ic_google_pixel_4__4xl___1.xml" value="0.2890625" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19MVVM/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2890625" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19MVVM/app/src/main/res/drawable/ic_round_calendar_today_24.xml" value="0.2890625" />
         <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19MVVM/app/src/main/res/drawable/side_nave_handler.xml" value="0.2890625" />
         <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19MVVM/app/src/main/res/drawable/storke_border.xml" value="0.2890625" />
         <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19MVVM/app/src/main/res/layout/activity_main.xml" value="0.25" />
@@ -17,6 +21,20 @@
         <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19MVVM/app/src/main/res/layout/shimmer_list_layout.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19MVVM/app/src/main/res/menu/bott0m_nav_menu.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19MVVM/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_MVVM/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2890625" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_M_vvm/app/src/main/res/drawable/bottom_nav_bg.xml" value="0.2890625" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_M_vvm/app/src/main/res/drawable/outline_language_24.xml" value="0.2890625" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_M_vvm/app/src/main/res/drawable/outline_location_on_24.xml" value="0.2890625" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_M_vvm/app/src/main/res/drawable/outline_public_24.xml" value="0.2890625" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_M_vvm/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_M_vvm/app/src/main/res/layout/fragment_countries_list.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_M_vvm/app/src/main/res/layout/fragment_country_specific.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_M_vvm/app/src/main/res/layout/fragment_global.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_M_vvm/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_layred/app/src/main/res/layout/fragment_global.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_layred/app/src/main/res/layout/shimmer_list_layout.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_layred/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2890625" />
+        <entry key="..\:/Users/AHMED/AndroidStudioProjects/Coivd19_layred/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2890625" />
       </map>
     </option>
   </component>

@@ -57,8 +57,9 @@ class GlobalFragment : Fragment() {
                     fetchGlobalData()
                 }
                 false -> {
-                    val directions = NavGraphDirections.actionGlobalNoInternetFragment()
-                    findNavController().navigate(directions)
+                    binding.shimmerLayout.visibility = View.GONE
+                    binding.mainLayout.visibility = View.GONE
+                    binding.gbNoInternet.visibility = View.VISIBLE
                 }
 
             }
@@ -74,6 +75,7 @@ class GlobalFragment : Fragment() {
                 Status.SUCCESS -> {
 
                     binding.shimmerLayout.visibility = View.GONE
+                    binding.gbNoInternet.visibility = View.GONE
                     binding.mainLayout.visibility = View.VISIBLE
                     it.data?.let { it1 ->
                         binding.apply {
@@ -93,10 +95,10 @@ class GlobalFragment : Fragment() {
                 Status.LOADING -> {
                     binding.shimmerLayout.visibility = View.VISIBLE
                     binding.mainLayout.visibility = View.GONE
+                    binding.gbNoInternet.visibility = View.GONE
                 }
                 Status.ERROR -> {
-                    Log.i(TAG, "fetchData: ProgressBar gone")
-                    Log.i(TAG, "fetchData: Error occur")
+                    binding.gbNoInternet.visibility = View.VISIBLE
                 }
             }
         }

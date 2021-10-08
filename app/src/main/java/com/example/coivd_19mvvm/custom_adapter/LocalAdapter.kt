@@ -79,5 +79,4 @@ class LocalAdapter(
 
     override fun getItemCount() = countriesList.size
 
-
 }

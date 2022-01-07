@@ -2,10 +2,9 @@ package com.example.coivd_19mvvm.fragments
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -52,7 +51,23 @@ class CountriesListFragment : Fragment(), ItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        search_bar()
+
         initRecyclerView()
+    }
+
+    // EDITED on 07/01/2022
+    private fun search_bar() {
+        binding.searchView.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                myAdapter.filter.filter(newText)
+                return true
+            }
+        })
     }
 
     private fun initRecyclerView() {
@@ -128,4 +143,5 @@ class CountriesListFragment : Fragment(), ItemClickListener {
             .actionCountriesListFragmentToCountrySpecificFragment(currentItem)
         findNavController().navigate(directions)
     }
+
 }

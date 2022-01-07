@@ -3,6 +3,8 @@ package com.example.coivd_19mvvm.custom_adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -21,7 +23,7 @@ import javax.inject.Inject
 class LocalAdapter(
     val context: Context,
     private val itemClickListener: ItemClickListener
-) : RecyclerView.Adapter<LocalAdapter.LocalViewHolder>() {
+) : RecyclerView.Adapter<LocalAdapter.LocalViewHolder>(),  Filterable {
 
     class LocalViewHolder(val itemBinding: LocalDataDisplayBinding) :
         RecyclerView.ViewHolder(itemBinding.root)
@@ -78,5 +80,33 @@ class LocalAdapter(
     }
 
     override fun getItemCount() = countriesList.size
+
+    // EDITED on 07/01/2022
+    override fun getFilter(): Filter = customFilter
+    private val customFilter = object: Filter(){
+        override fun performFiltering(constraints: CharSequence?): FilterResults {
+
+            val filteredList = mutableListOf<CountriesItem>()
+            if(constraints ==  null || constraints.isEmpty()){
+                filteredList.addAll(countriesList)
+            }
+            else{
+                val filterPattern = constraints.toString().lowercase().trim()
+
+                for (item in countriesList){
+                    if (item.country.lowercase().contains(filterPattern)){
+                        filteredList.add(item)
+                    }
+                }
+            }
+            val results = FilterResults()
+            results.values = filteredList
+            return results
+        }
+
+        override fun publishResults(p0: CharSequence?, filterResults: FilterResults?) {
+            differList.submitList(filterResults?.values as MutableList<CountriesItem>)
+        }
+    }
 
 }

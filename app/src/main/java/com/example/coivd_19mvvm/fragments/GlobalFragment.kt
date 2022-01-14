@@ -92,7 +92,7 @@ class GlobalFragment : Fragment() {
                     }
                 }
                 Status.LOADING -> {
-                    binding.shimmerLayout.visibility = View.VISIBLE
+                        binding.shimmerLayout.visibility = View.VISIBLE
                     binding.mainLayout.visibility = View.GONE
                     binding.gbNoInternet.visibility = View.GONE
                 }

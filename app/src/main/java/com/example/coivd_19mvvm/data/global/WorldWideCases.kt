@@ -1,10 +1,10 @@
 package com.example.coivd_19mvvm.data.global
 
 data class WorldWideCases(
-    val cases: Int,
+    val todayCases: Int,
     val critical: Int,
-    val deaths: Int,
+    val todayDeaths: Int,
     val population: Long,
-    val recovered: Int,
-    val tests: Long,
+    val todayRecovered: Int,
+    val active: Long,
 )

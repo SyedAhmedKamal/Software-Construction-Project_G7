@@ -33,10 +33,5 @@
             android:name="countryArgs"
             app:argType="com.example.coivd_19mvvm.data.local.CountriesItem" />
     </fragment>
-    <fragment
-        android:id="@+id/noInternetFragment"
-        android:name="com.example.coivd_19mvvm.fragments.NoInternetFragment"
-        android:label="fragment_no_internet"
-        tools:layout="@layout/fragment_no_internet" />
-    <action android:id="@+id/action_global_noInternetFragment" app:destination="@id/noInternetFragment" /><action android:id="@+id/action_global_countriesListFragment" app:destination="@id/countriesListFragment"/><action android:id="@+id/action_global_globalFragment" app:destination="@id/globalFragment"/>
+    <action android:id="@+id/action_global_countriesListFragment" app:destination="@id/countriesListFragment"/><action android:id="@+id/action_global_globalFragment" app:destination="@id/globalFragment"/>
 </navigation>

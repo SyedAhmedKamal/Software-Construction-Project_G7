@@ -86,7 +86,6 @@ class GlobalFragment : Fragment() {
                                 todayDeaths.text = format(it1.todayDeaths).toString()
                                 todayRecovered.text = format(it1.todayRecovered).toString()
                                 active.text = format(it1.active).toString()
-                                updated.text = format(it1.updated).toString()
 
                             }
                         }

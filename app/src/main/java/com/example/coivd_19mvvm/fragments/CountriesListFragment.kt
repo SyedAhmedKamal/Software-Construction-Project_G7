@@ -6,13 +6,9 @@ import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.coivd_19mvvm.NavGraphDirections
-import com.example.coivd_19mvvm.R
 import com.example.coivd_19mvvm.connectivity.NetworkStatus
 import com.example.coivd_19mvvm.custom_adapter.LocalAdapter
 import com.example.coivd_19mvvm.data.local.CountriesItem
@@ -51,13 +47,13 @@ class CountriesListFragment : Fragment(), ItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        search_bar()
+        searchBar()
 
         initRecyclerView()
     }
 
-    // EDITED on 07/01/2022
-    private fun search_bar() {
+    // EDITED on 14/01/2022
+    private fun searchBar() {
         binding.searchView.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -100,7 +96,6 @@ class CountriesListFragment : Fragment(), ItemClickListener {
             }
 
         }
-
     }
 
     private fun fetchList() {

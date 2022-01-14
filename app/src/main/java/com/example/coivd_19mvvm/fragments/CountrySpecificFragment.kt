@@ -58,9 +58,9 @@ class CountrySpecificFragment : Fragment() {
         binding.apply {
             args.countryArgs.apply {
                 NumberFormat.getInstance(Locale.US).apply {
-                    spTodayCases.text = format(cases).toString()
-                    spTodayDeaths.text = format(deaths).toString()
-                    spTodayRecovered.text = format(recovered).toString()
+                    spTodayCases.text = format(todayCases).toString()
+                    spTodayDeaths.text = format(todayDeaths).toString()
+                    spTodayRecovered.text = format(todayDeaths).toString()
                 }
                 val sdf = SimpleDateFormat("dd MMM, yyyy - HH:mm")
                 spDate.text = sdf.format(Date()).toString()
